@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>G-Fit 모의고사</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <div class="sysbar">
+    <button class="back" id="btnReset">← 시험 재설정</button>
+    <span class="sep">|</span>
+    <span class="crumb">모의 연습 · AI 실무역량검사(Global) 형식 · 비공식 연습용 화면</span>
+    <span class="sep">|</span>
+    <span class="live"><span class="dot"></span>화상 감독 OFF (연습)</span>
+    <span class="live ok">◠ 연결 원활</span><span class="sep">|</span><span class="live" id="aiStatus">AI 확인 중…</span>
+    <div class="icons">
+      <span class="ico on" title="화면"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1.5" y="2.5" width="13" height="9" rx="1"/><path d="M5 14h6M8 11.5V14"/></svg></span>
+      <span class="ico on" title="카메라"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="4" width="10" height="8" rx="1.5"/><path d="M11 7l4-2.5v7L11 9z"/></svg></span>
+      <span class="ico on" title="모바일"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="1.5" width="8" height="13" rx="1.5"/><path d="M7 12h2"/></svg></span>
+      <button class="ico" id="btnSettings" aria-label="음성·자막 설정" title="음성·자막 설정"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="2.2"/><path d="M8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2M3.4 3.4l1.4 1.4M11.2 11.2l1.4 1.4M3.4 12.6l1.4-1.4M11.2 4.8l1.4-1.4"/></svg></button>
+    </div>
+  </div>
+
+  <header class="apphead">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 26 26" aria-hidden="true"><rect x="2" y="2" width="22" height="22" rx="6" fill="#2F6FE4"/><path d="M8 17V9h5.5a3 3 0 010 6H10" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <b>AI 실무역량검사 모의연습</b><span class="tag">PRACTICE</span>
+    </div>
+    <div class="stepper" aria-label="진행 단계">
+      <span class="step" id="stTask"><i>1</i>TASK</span><span class="bar"></span><span class="step" id="stMeet"><i>2</i>MEETING</span>
+    </div>
+    <div class="timer"><span id="timerLbl">Time Left</span><b id="timer">20:00</b></div>
+  </header>
+
+  <div class="stage">
+    <!-- INTRO -->
+    <section class="view" id="v-intro">
+      <div class="intro"><div class="intro-in">
+        <div style="display:grid;gap:4px;align-content:start">
+          <div class="kicker">INTRODUCTION</div>
+          <h1>AI 실무역량검사(Global)<br>G-Fit 형식 모의고사</h1>
+          <p>가상의 글로벌 비즈니스 환경에서 주어진 과제를 해결하는 시뮬레이션입니다. AI Agent를 활용해 해결 방안을 작성하고, 이해관계자 페르소나와의 미팅에서 영어로 제안하고 협상합니다.</p>
+          <div class="chips"><span>⏱ 총 50분</span><span>2 Stages</span><span>AI Agent 지원</span></div>
+          <div class="k2" style="color:#8D9AB0;margin-top:6px">시나리오 선택 · T1–T5 기본 / T6–T10 AX 고객사 프로젝트(모집분야별)</div>
+          <div class="picker" id="picker"></div>
+          <div class="k2" style="color:#8D9AB0;margin-top:14px">시간 모드</div>
+          <div class="modes">
+            <button class="seg" data-mode="real" aria-pressed="true">실전 (20분 / 30분)</button>
+            <button class="seg" data-mode="free" aria-pressed="false">연습 (시간 제한 없음)</button>
+          </div>
+          <div class="cta" style="margin-top:18px">
+            <button class="btn primary" id="btnStart">Start Assessment →</button>
+            <button class="btn ghost" id="btnStudy">학습 모드 · 리스닝/쉐도잉</button>
+          </div>
+          <p class="fine" style="margin-top:10px">개인 연습용 비공식 모의 화면입니다. 실제 시험의 문항과 세부 동작은 다를 수 있습니다.</p>
+        </div>
+        <div class="flowcard">
+          <div class="kicker">ASSESSMENT FLOW</div>
+          <h3 style="margin:0;font-size:18px">총 2개의 스테이지를 통해 글로벌 비즈니스 해결 역량을 진단합니다.</h3>
+          <div class="fstage"><span class="n">1</span><div><h3>Task: 비즈니스 솔루션 설계 <span class="min">20 min</span></h3><p class="fine" style="font-size:13.5px">주어진 비즈니스 시나리오를 분석하고, AI 에이전트와 협업하여 솔루션을 설계합니다.</p></div></div>
+          <div class="fstage"><span class="n">2</span><div><h3>Meeting: 전략적 커뮤니케이션 <span class="min v">30 min</span></h3><p class="fine" style="font-size:13.5px">이해관계자와 함께 당신의 전략을 공유하고 논의합니다. 준비 30초 후 자동 녹화, 답변 최대 2분, 다시 듣기 2회.</p></div></div>
+          <div class="ibox"><b>아래 두 가지 도구를 함께 활용해보세요.</b><br><span class="hl">AI Agent</span> · 당신의 협업 파트너와 최적의 해결 방안을 설계해보세요.<br><span class="hl">Memo</span> · 문제 해결 과정에서 떠오른 아이디어와 판단 근거를 자유롭게 기록해보세요.</div>
+          <div class="ibox"><b>지금부터 모든 시나리오와 과제 수행은 영어로 진행합니다.</b><br>G-Fit Studio는 유창함(Fluency)보다 메시지 전달(Message delivery)을 중요하게 봅니다.<br>문제 해결 능력과 목적 중심의 소통에 집중하며, 당신의 비즈니스 인사이트를 마음껏 발휘해 보세요.<br><span class="hl">💡 AI Agent를 활용하는 과정에서는 한국어 사용이 가능합니다.</span></div>
+          <div class="ibox"><b>이 모의고사에서 달라지는 점</b><br>카메라·마이크는 쓰지 않습니다. 답변은 소리 내어 말하고(휴대폰 녹음 권장), 끝난 뒤 복습 화면에서 모범답변 쉐도잉과 AI 피드백을 받습니다.</div>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- TASK -->
+    <section class="view" id="v-task" hidden>
+      <div class="task">
+        <div class="pane left">
+          <div class="phead"><span class="d"></span>Scenario &amp; Requirements</div>
+          <div class="pbody scn" id="scn"></div>
+        </div>
+        <div class="pane mid">
+          <div class="phead"><span class="d g"></span>Task Output<span class="wc" id="wc">0 / 500 WORDS</span></div>
+          <div class="toolbar" role="toolbar" aria-label="서식">
+            <button data-cmd="h1">H1</button><button data-cmd="h2">H2</button><span class="vs"></span>
+            <button data-cmd="bold"><b>B</b></button><button data-cmd="italic"><i>I</i></button><span class="vs"></span>
+            <button data-cmd="ul">•</button><button data-cmd="ol">1.</button><span class="vs"></span>
+            <button data-cmd="table" title="표 삽입">⊞</button><button data-cmd="p">P</button>
+          </div>
+          <div class="editor" id="editor" contenteditable="true" spellcheck="true" aria-label="Task Output"></div>
+        </div>
+        <div class="pane right">
+          <div class="side-tabs" role="tablist">
+            <button role="tab" aria-selected="true" data-side="agent"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>AI Agent</button>
+            <button role="tab" aria-selected="false" data-side="memo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 1.5h5.5L13 5v9.5H4z"/><path d="M9.5 1.5V5H13"/></svg>Memo</button>
+          </div>
+          <div id="sideAgent" style="display:flex;flex-direction:column;flex:1;min-height:0">
+            <div class="chat-top"><button class="newchat ghost" id="btnPrompts" aria-expanded="false">추천 프롬프트</button><button class="newchat" id="btnNewChat">+ New chat</button></div>
+            <div class="pp" id="promptPanel" hidden></div>
+            <div class="chat" id="chat" aria-live="polite"></div>
+            <div class="composer">
+              <textarea id="ask" maxlength="4000" placeholder="Ask the AI Agent..." aria-label="AI Agent에게 질문"></textarea>
+              <button class="send" id="btnSend">Send</button>
+              <span class="cnt" id="askCnt">0 / 4000</span>
+              <span class="note">AI responses may contain inaccuracies. Chat history resets when you leave this page.</span>
+            </div>
+          </div>
+          <textarea id="memo" class="memo-area" hidden placeholder="Record your AI usage decisions, source selection rationale, and strategic notes here..." aria-label="Memo"></textarea>
+        </div>
+        <div class="task-foot">
+          <span class="saved" id="saved">자동 저장됨</span>
+          <button class="btn primary" id="btnSubmit">Submit →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEETING -->
+    <section class="view" id="v-meet" hidden>
+      <div class="meet">
+        <div class="share">
+          <div class="tiles">
+            <div class="tile" id="tileMe"><svg viewBox="0 0 60 60" width="54" aria-hidden="true"><circle cx="30" cy="22" r="11" fill="#3B4A60"/><path d="M8 56c2-13 11-20 22-20s20 7 22 20z" fill="#3B4A60"/></svg><span class="lbl">You</span></div>
+            <div class="tile p" id="tileP"><div><div class="mini-av" id="miniAv">C</div><div class="nm" id="miniNm">Clair<small>Team Lead</small></div></div><span class="badge" id="speakBadge" hidden>SPEAKING</span></div>
+          </div>
+          <div class="sharebar">
+            <span>🖥 SCREEN SHARE — </span>
+            <button class="tab" data-share="out" aria-pressed="true">TASK OUTPUT</button>
+            <button class="tab" data-share="scn" aria-pressed="false">SCENARIO</button>
+            <span class="shared">Shared</span>
+          </div>
+          <div class="sharedoc" id="sharedoc"></div>
+        </div>
+        <div class="center">
+          <div class="persona">
+            <div class="big-av" id="bigAv">C</div>
+            <div class="pn" id="pName">Clair</div>
+            <div class="pr" id="pRole">Team Lead</div>
+            <div class="caption" id="caption" hidden></div>
+            <span class="tag" id="pTag">Clair</span>
+          </div>
+          <div class="me" id="meBox">
+            <svg class="sil" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="22" r="11" fill="#2F3B4D"/><path d="M8 56c2-13 11-20 22-20s20 7 22 20z" fill="#2F3B4D"/></svg>
+            <span class="note">카메라 미사용 · 소리 내어 답변하세요</span>
+            <div class="think" id="thinkBox" hidden>Thinking time remaining:<b id="thinkT">00:30</b></div>
+            <div class="rec" id="recBox" hidden>REC</div>
+            <div class="clock" id="ansClock" hidden>⏱ 2:00</div>
+            <div class="info" id="infoBox" hidden>ⓘ Press <b>Start Answer</b> when ready, or recording starts automatically after 30s.</div>
+            <span class="tag">You</span>
+          </div>
+          <div class="ctrl">
+            <button class="mbtn" id="btnAnswer" disabled><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg>Start Answer</button>
+            <button class="mbtn out" id="btnReplay" disabled>↻ Replay (2/2)</button>
+            <button class="mbtn" id="btnStopAns" hidden>■ Stop Answer</button>
+          </div>
+        </div>
+        <div class="mmemo">
+          <div class="h"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 1.5h5.5L13 5v9.5H4z"/></svg>Memo</div>
+          <textarea id="mMemo" class="memo-area" placeholder="Take notes during the meeting...&#10;&#10;Key points, stakeholder concerns, your responses..." aria-label="Meeting memo"></textarea>
+        </div>
+        <div class="meet-foot">
+          <span class="st" id="meetSt">Connecting…</span>
+          <button class="endbtn" id="btnEnd" disabled>End Meeting →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="v-result" hidden><div class="read"><div class="read-in" id="resultIn"></div></div></section>
+    <section class="view" id="v-study" hidden><div class="read"><div class="read-in" id="studyIn"></div></div></section>
+  </div>
+</div>
+
+<!-- modals -->
+<div class="overlay" id="ovConfirm" hidden>
+  <div class="modal sm" role="dialog" aria-modal="true" aria-labelledby="cfT">
+    <div class="k" id="cfK">SUBMIT</div>
+    <h2 id="cfT">Task를 제출하시겠습니까?</h2>
+    <p id="cfP" style="color:#A9B5C6;margin:0 0 18px">제출 후에는 수정할 수 없으며, Meeting 단계로 이동합니다.</p>
+    <div class="rowbtn" style="justify-content:center"><button class="btn ghost" id="cfNo">취소</button><button class="btn primary" id="cfYes">제출하기</button></div>
+  </div>
+</div>
+<div class="overlay" id="ovBrief" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="brT">
+    <div class="k">STAGE 2 — MEETING BRIEFING</div>
+    <h2 id="brT">Meeting Briefing</h2>
+    <div class="brief">
+      <div class="doc"><div class="dh">📄 TASK OUTPUT (PRIOR STAGE)</div><div class="db" id="brDoc"></div></div>
+      <div class="side">
+        <div class="box"><div class="k">MEETING PARTICIPANTS</div><div class="who"><div class="mini-av" id="brAv">C</div><div><b id="brName">Clair</b> <small id="brRole">| Team Lead</small></div></div></div>
+        <div class="box"><div class="k">MEETING SCENARIO</div><div id="brScn" style="font-size:14px;color:#C9D3E2"></div></div>
+        <div class="fine" id="brAI"></div>
+        <button class="btn primary join" id="btnJoin">Join Meeting Now →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="settings" id="settings" hidden>
+  <b>음성 · 자막 설정</b>
+  <label for="setVoice">영어 목소리<select id="setVoice"><option value="">기본 영어</option></select></label>
+  <label for="setRate">말하기 속도<select id="setRate"><option value="0.8">0.8× (느리게)</option><option value="0.9">0.9×</option><option value="1" selected>1.0× (실전)</option><option value="1.1">1.1×</option></select></label>
+  <label for="setGap">쉐도잉 멈춤 간격<select id="setGap"><option value="1.1">1.1×</option><option value="1.4" selected>1.4×</option><option value="1.8">1.8×</option></select></label>
+  <span class="row"><input type="checkbox" id="setCap"><label for="setCap" style="display:inline">미팅 질문 자막 보기 (실제 시험엔 없음)</label></span>
+  <button class="btn sm" id="setClose">닫기</button>
+</div>
+
+<script src="data.js"></script>
+<script src="data.local.js"></script><!-- 개인 맞춤(선택, git 제외) -->
+<script src="app.js"></script>
+</body>
+</html>

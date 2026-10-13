@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.env
+*.log
+
+# 개인 파일 (공유 안 함)
+data.local.js
+tts-cache-local/
