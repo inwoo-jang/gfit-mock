@@ -190,6 +190,12 @@ async function playSeq(ids, mode) {
   if (my === tk) clearMarks();
 }
 async function sayList(texts) { stopAll(); const my = tk; for (const t of texts) { if (my !== tk) return; await say(t); await wait(250); } }
+// "English || 한국어" per line → [en, ko]; falls back to plain sentence split.
+function enKoLines(text) {
+  const rows = text.split("\n").map(l => l.trim()).filter(Boolean);
+  if (!rows.some(l => l.includes("||"))) return sentences(text).map(s => [s, ""]);
+  return rows.map(l => { const [en, ...ko] = l.split("||"); return [en.trim(), ko.join("||").trim()]; }).filter(l => l[0]);
+}
 const sentences = t => (t.replace(/\s+/g, " ").match(/[^.!?]+[.!?]+["')\]]*|[^.!?]+$/g) || []).map(s => s.trim()).filter(Boolean);
 
 /* ---------- views & clock ---------- */
@@ -603,8 +609,10 @@ Speaker asking: ${p.name}, ${p.role}. Context: ${briefOf(t)}
 Scenario: ${t.scenario.map(s => s[0]).join(" ")}
 The candidate's document: """${S.outText.slice(0, 4000) || t.output.map(l => l[0]).join(" ")}"""
 Question: ${q.q}
-Write the answer the candidate could say in 60–90 seconds (110–150 words): answer first, two reasons using numbers from the document or scenario, address a likely concern, end with a next step. Plain sentences only, no bullets, no headings, no quotation marks.`, "default");
-    if (text) box.innerHTML = `<div class="k2">AI 모범답변 · 쉐도잉</div>` + block(sentences(text).map(s => [s, ""]));
+Write the answer the candidate could say in 60–90 seconds (110–150 words): answer first, two reasons using numbers from the document or scenario, address a likely concern, end with a next step. No bullets, no headings, no quotation marks.
+Output format: one English sentence per line, followed by " || " and a natural Korean translation of that sentence. Example:
+I'd recommend Vendor B. || 저는 Vendor B를 추천합니다.`, "default");
+    if (text) box.innerHTML = `<div class="k2">AI 모범답변 · 쉐도잉</div>` + block(enKoLines(text));
     else mdl.disabled = false;
   }
 });
