@@ -621,7 +621,7 @@ I'd recommend Vendor B. || 저는 Vendor B를 추천합니다.`, "default");
 let studyTab = "scn", studyTi = S.ti;
 function openStudy(tab) { stopAll(); studyTab = tab || studyTab; studyTi = S.ti; renderStudy(); show("study"); }
 function renderStudy() {
-  const tabs = [["scn", "시나리오별 모범답안"], ["prompt", "AI 프롬프트"], ["tpl", "템플릿 회화"], ["pat", "핵심 패턴"], ["intro", "직무별 자기소개"]];
+  const tabs = [["scn", "시나리오별 모범답안"], ["prompt", "AI 프롬프트"], ["tpl", "템플릿 회화"], ["pat", "핵심 패턴"], ["m100", "회의 필수 100"], ["intro", "직무별 자기소개"]];
   let body = "";
   if (studyTab === "scn") {
     const t = TASKS[studyTi];
@@ -644,6 +644,8 @@ function renderStudy() {
       <div class="card"><h2>피해야 할 프롬프트</h2><ul style="margin:0;padding-left:18px">${G.avoid.map(x => `<li><b>${esc(x[0])}</b> · ${esc(x[1])}</li>`).join("")}</ul></div>` +
       G.stages.map(s => `<div class="card"><div class="k2">${esc(s.time)}</div><h2>${esc(s.name)}</h2>${s.items.map(x => `<div class="prompt" style="white-space:pre-line"><small>${esc(x[1])}</small>${esc(x[0])}</div>`).join("")}</div>`).join("") +
       `<div class="card"><h2>시나리오별 추천 프롬프트</h2>${TASKS.map(t => `<div style="margin-top:10px"><b>${esc(t.id)} · ${esc(t.short)}</b>${t.prompts.map(x => `<div class="prompt"><small>${x[0] === "KO" ? "한국어" : "English"}</small>${esc(x[1])}</div>`).join("")}</div>`).join("")}</div>`;
+  } else if (studyTab === "m100") {
+    body = MEETING100.map(c => `<div class="card"><h2>${esc(c.part)}</h2>${block(c.items)}</div>`).join("");
   } else if (studyTab === "tpl") {
     body = `<p class="ko" style="margin:0 0 10px">★ 자주 쓰고 활용도 높은 핵심 표현</p>` + TEMPLATES.map(c => `<div class="card"><h2>${esc(c.cat)}</h2>${block(c.items)}</div>`).join("");
   } else {
