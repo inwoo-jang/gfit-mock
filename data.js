@@ -397,6 +397,22 @@ const TEMPLATES = [
   ["Could I ask you to review this by Wednesday?", "수요일까지 검토 부탁드려도 될까요?"],
   ["It would be great if we could get the client's approval this week.", "이번 주에 고객사 승인을 받을 수 있으면 좋겠습니다."],
   ["I was wondering if we could extend the deadline by a few days.", "마감을 며칠 연장할 수 있을지 여쭤봐도 될까요."]]},
+ {cat:"고객 신뢰·파트너십", items:[
+  ["We're committed to delivering a solution that truly meets your needs. We look forward to making this project a success together.", "귀사의 니즈에 꼭 맞는 솔루션을 제공하는 데 책임감을 갖고 임하겠습니다. 함께 이 프로젝트를 성공시키길 기대합니다.", "★"],
+  ["Our priority is to understand your business challenges and deliver a solution that creates real value.", "저희의 최우선 목표는 귀사의 비즈니스 과제를 이해하고 실질적인 가치를 만드는 솔루션을 제공하는 것입니다.", "★"],
+  ["We want to fully understand your challenges before proposing a solution.", "솔루션을 제안하기 전에 귀사의 과제를 충분히 이해하고 싶습니다."],
+  ["Our goal is to build a solution that truly fits your business needs.", "귀사 비즈니스에 실제로 맞는 솔루션을 만드는 것이 목표입니다."],
+  ["We see this as a partnership, not just a project.", "단순한 프로젝트가 아니라 파트너십이라고 생각합니다."],
+  ["We believe the best results come from working closely together.", "최고의 결과는 긴밀한 협력에서 나온다고 믿습니다."],
+  ["Your insights and our expertise will help us build the right solution.", "귀사의 현장 인사이트와 저희 전문성이 만나면 맞는 솔루션을 만들 수 있습니다."],
+  ["We'll keep you informed every step of the way.", "진행 단계마다 빠짐없이 공유드리겠습니다."],
+  ["We'll do everything we can to deliver the best possible outcome.", "최선의 결과를 내도록 할 수 있는 모든 것을 하겠습니다."],
+  ["We're looking forward to building a long-term partnership with your team.", "귀사 팀과 장기적인 파트너십을 쌓아가길 기대합니다."]]},
+ {cat:"미팅 마무리 30초 스크립트", items:[
+  ["Thank you for sharing your insights with us today.", "오늘 귀한 의견을 나눠 주셔서 감사합니다."],
+  ["Our goal is not just to build a solution, but to create something that truly adds value to your business.", "저희 목표는 단순히 솔루션을 만드는 게 아니라 귀사 비즈니스에 실질적인 가치를 더하는 것입니다."],
+  ["We'll do our best to understand your needs, communicate openly, and deliver the best possible outcome.", "요구사항을 충분히 이해하고, 투명하게 소통하며, 최선의 결과를 내겠습니다."],
+  ["We look forward to working closely with your team. Let's make this a success together.", "귀사 팀과 긴밀히 협력하길 기대합니다. 함께 성공적으로 만들어가죠."]]},
  {cat:"이메일 필수 문장 (Task Output)", items:[
   ["I'm writing to update you on the project schedule.","프로젝트 일정 관련 업데이트드리고자 메일 드립니다.","★"],
   ["I'd like to propose a four-week pilot.","4주 파일럿을 제안드리고자 합니다."],
@@ -458,7 +474,10 @@ const PATTERNS = [
  {p:"iron out ~",m:"(문제·세부 사항을) 조율해 해결하다",ex:[["Let's iron out the details.", "세부 사항을 하나씩 조율해 보죠."], ["We still need to iron out a few issues with the vendor.", "벤더와 아직 몇 가지 문제를 조율해야 합니다."], ["Once we iron out the details, I'll send the final plan.", "세부 사항이 정리되면 최종안을 보내드리겠습니다."]]},
  {p:"The next item on the agenda is ~",m:"다음 안건은 ~입니다",ex:[["The next item on the agenda is the budget.", "다음 안건은 예산입니다."], ["Let's move on to the next item on the agenda.", "다음 안건으로 넘어가죠."], ["Is there anything else on the agenda?", "다른 안건 있으신가요?"]]},
  {p:"To wrap things up, ~",m:"정리하자면 / 마무리하자면",ex:[["To wrap things up, let me summarize the key points.", "마무리하며 핵심을 정리하겠습니다."], ["Let's wrap things up here.", "여기서 마무리하죠."], ["Before we wrap up, does anyone have anything to add?", "마치기 전에 덧붙이실 분 있으신가요?"]]},
- {p:"Do you have any questions?",m:"질문 있으신가요?",ex:[["Do you have any questions?", "질문 있으신가요?"], ["Are there any questions so far?", "여기까지 질문 있으신가요?"], ["If you have any questions, feel free to ask.", "질문 있으시면 편하게 물어보세요."]]}
+ {p:"Do you have any questions?",m:"질문 있으신가요?",ex:[["Do you have any questions?", "질문 있으신가요?"], ["Are there any questions so far?", "여기까지 질문 있으신가요?"], ["If you have any questions, feel free to ask.", "질문 있으시면 편하게 물어보세요."]]},
+ {p:"be committed to + -ing",m:"~에 책임감을 갖고 임하다 (강한 의지)",ex:[["We're committed to making this project a success.", "이 프로젝트를 성공시키는 데 책임감을 갖고 임하겠습니다."], ["We're committed to delivering a solution that truly meets your needs.", "니즈에 꼭 맞는 솔루션 제공에 최선을 다하겠습니다."], ["We're committed to keeping you informed throughout the project.", "프로젝트 내내 상황을 공유드리겠습니다."]],note:"to는 전치사 → 뒤에 -ing. We'll do our best보다 전문적이고 강한 표현"},
+ {p:"look forward to + -ing",m:"~하기를 기대하다",ex:[["We look forward to working closely with your team.", "귀사 팀과 긴밀히 협력하길 기대합니다."], ["We're looking forward to building a long-term partnership with your team.", "귀사 팀과 장기 파트너십을 쌓아가길 기대합니다."], ["I look forward to hearing your feedback.", "피드백 기다리겠습니다."]],note:"to 뒤 -ing (look forward to meet ✕)"},
+ {p:"deliver / create real value",m:"실질적인 가치를 제공하다 (컨설팅·B2B)",ex:[["Our priority is to deliver real value to your business.", "저희 최우선 목표는 귀사에 실질적인 가치를 드리는 것입니다."], ["This solution will create real value by cutting manual work in half.", "이 솔루션은 수작업을 절반으로 줄여 실질적인 가치를 만듭니다."]]}
 ];
 
 const DIALOGUE = [
