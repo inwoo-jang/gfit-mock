@@ -419,6 +419,17 @@ const TEMPLATES = [
   ["Our goal is not just to build a solution, but to create something that truly adds value to your business.", "저희 목표는 단순히 솔루션을 만드는 게 아니라 귀사 비즈니스에 실질적인 가치를 더하는 것입니다."],
   ["We'll do our best to understand your needs, communicate openly, and deliver the best possible outcome.", "요구사항을 충분히 이해하고, 투명하게 소통하며, 최선의 결과를 내겠습니다."],
   ["We look forward to working closely with your team. Let's make this a success together.", "귀사 팀과 긴밀히 협력하길 기대합니다. 함께 성공적으로 만들어가죠."]]},
+ {cat:"다음 일정 잡기·연락 열어두기", items:[
+  ["When would be a good time for our next meeting?", "다음 미팅은 언제가 좋으실까요?", "★"],
+  ["What does your schedule look like next week?", "다음 주 일정은 어떠세요?"],
+  ["Would sometime next week work for you?", "다음 주 중에 괜찮으실까요?"],
+  ["How about we meet again next Tuesday at 2 p.m.?", "다음 주 화요일 오후 2시에 다시 뵙는 건 어떨까요?"],
+  ["Let me know what works best for you, and I'll send a calendar invite.", "편하신 시간 알려주시면 캘린더 초대 보내드릴게요.", "★"],
+  ["I'll check my calendar and send you a few options.", "제 일정 확인하고 몇 가지 후보를 보내드릴게요."],
+  ["If you have any questions, feel free to reach out anytime.", "궁금한 점 있으시면 언제든 편하게 연락 주세요.", "★"],
+  ["Please don't hesitate to contact me if anything comes up.", "무슨 일이 생기면 주저 말고 연락 주세요."],
+  ["You can reach me by email or phone anytime.", "이메일이나 전화로 언제든 연락 주세요."],
+  ["I'm happy to help if you need anything else.", "더 필요한 게 있으시면 기꺼이 도와드리겠습니다."]]},
  {cat:"이메일 필수 문장 (Task Output)", items:[
   ["I'm writing to update you on the project schedule.","프로젝트 일정 관련 업데이트드리고자 메일 드립니다.","★"],
   ["I'd like to propose a four-week pilot.","4주 파일럿을 제안드리고자 합니다."],
@@ -490,7 +501,9 @@ const PATTERNS = [
  {p:"Let's revisit this later.",m:"나중에 다시 논의하시죠 (보류)",ex:[["Let's revisit this later.", "이 부분은 나중에 다시 논의하시죠."], ["Let's put this on hold for now.", "일단 보류해 두시죠."], ["Let's pick this up in our next meeting.", "다음 미팅에서 이어서 논의하시죠."], ["We can discuss this further later.", "추후 좀 더 논의할 수 있겠습니다."]],note:"circle back은 캐주얼. 공식 고객 미팅에서는 revisit이 무난"},
  {p:"I think it would be better to ~",m:"~하는 편이 좋겠습니다 (부담 없는 제안)",ex:[["I think it would be better to discuss this in person.", "이 부분은 직접 만나서 논의하는 편이 좋겠습니다."], ["Let's arrange a face-to-face meeting.", "대면 미팅을 잡으시죠."], ["We can go over the details in person.", "세부 사항은 직접 만나서 검토하시죠."], ["I think it would be better to start with a smaller scope.", "작은 범위로 시작하는 편이 좋겠습니다."]],note:"'오프라인 미팅' 대신 in person / face-to-face"},
  {p:"One option would be to ~ / I would suggest ~",m:"한 가지 방법은 ~ / ~를 제안드립니다",ex:[["One option would be to start with a pilot.", "한 가지 방법은 파일럿으로 시작하는 것입니다."], ["I would suggest moving this feature to phase two.", "이 기능은 2단계로 옮기는 걸 제안드립니다."], ["From our perspective, the timeline is the bigger risk.", "저희 관점에서는 일정이 더 큰 리스크입니다."]],note:"suggest 뒤에는 -ing 또는 that절"},
- {p:"Let me ~ / Let's ~ (짧은 만능)",m:"제가 ~할게요 / 함께 ~하시죠 (미팅 주도)",ex:[["Let me check.", "확인해 볼게요."], ["Let me clarify.", "명확히 말씀드릴게요."], ["Let me explain.", "설명드릴게요."], ["Let's move on.", "다음으로 넘어가시죠."], ["Let's make sure we're aligned.", "서로 생각이 맞는지 확인하시죠."], ["Let's stay in touch.", "계속 연락하시죠."]]}
+ {p:"Let me ~ / Let's ~ (짧은 만능)",m:"제가 ~할게요 / 함께 ~하시죠 (미팅 주도)",ex:[["Let me check.", "확인해 볼게요."], ["Let me clarify.", "명확히 말씀드릴게요."], ["Let me explain.", "설명드릴게요."], ["Let's move on.", "다음으로 넘어가시죠."], ["Let's make sure we're aligned.", "서로 생각이 맞는지 확인하시죠."], ["Let's stay in touch.", "계속 연락하시죠."]]},
+ {p:"When would be a good time to ~?",m:"언제 ~하면 좋을까요? (일정 제안 받기)",ex:[["When would be a good time to meet again?", "언제 다시 뵈면 좋을까요?"], ["When would be a good time to give you a call?", "언제 전화드리면 좋을까요?"], ["What time works best for you?", "몇 시가 제일 편하세요?"]],note:"상대에게 선택권을 주는 정중한 방식. 답할 때는 Does ~ work for you?로 구체 시간 제안"},
+ {p:"feel free to ~ / don't hesitate to ~",m:"편하게 ~하세요 / 주저 말고 ~하세요",ex:[["Feel free to reach out anytime.", "언제든 편하게 연락 주세요."], ["Feel free to interrupt me if you have any questions.", "질문 있으시면 중간에 편하게 말씀해 주세요."], ["Please don't hesitate to let me know if you need anything.", "필요한 게 있으면 주저 말고 말씀해 주세요."]],note:"이메일·미팅 마무리 단골 표현"}
 ];
 
 const DIALOGUE = [
