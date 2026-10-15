@@ -314,7 +314,9 @@ const TEMPLATES = [
   ["That's a valid concern, and it's something we've already looked into.", "타당한 우려이고, 이미 검토해 본 부분입니다."],
   ["I can see why it might look that way. Let me add some context.", "그렇게 보일 수 있다는 거 이해합니다. 배경을 조금 덧붙이겠습니다."],
   ["I take your point, but I still think the risk is manageable.", "말씀 잘 알겠습니다. 그래도 리스크는 관리 가능하다고 봅니다.","★"],
-  ["Let's look at it from the client's perspective.", "고객사 입장에서 한번 보겠습니다."]]},
+  ["Let's look at it from the client's perspective.", "고객사 입장에서 한번 보겠습니다."],
+  ["I see your point, but I have a slightly different perspective.", "말씀은 이해하지만 저는 조금 다른 관점입니다."],
+  ["That makes sense. However, we also need to consider the cost.", "일리 있는 말씀입니다. 다만 비용도 고려해야 합니다."]]},
  {cat:"리스크·대응", items:[
   ["The biggest risk is the vendor's limited track record.","가장 큰 리스크는 벤더의 짧은 업력입니다.","★"],
   ["To manage this risk, we'll add a performance clause to the contract.","이 리스크 관리를 위해 계약에 성과 조항을 넣겠습니다.","★"],
@@ -342,7 +344,9 @@ const TEMPLATES = [
   ["I would have to check the details and get back to you on that.","세부 내용 확인 후 다시 말씀드려야 할 것 같습니다.","★"],
   ["Just to make sure we're on the same page, are you mainly concerned about cost?", "같은 이해인지 확인하고 싶은데, 주로 비용이 걱정되시는 거죠?"],
   ["So what you're saying is that the deadline can't move. Is that right?", "그러니까 마감은 못 바꾼다는 말씀이시죠, 맞나요?"],
-  ["Do you mean the total cost or just the first year?", "총비용을 말씀하시는 건가요, 첫해 비용만인가요?"]]},
+  ["Do you mean the total cost or just the first year?", "총비용을 말씀하시는 건가요, 첫해 비용만인가요?"],
+  ["I don't have the exact answer right now, but I'll follow up.", "지금 정확한 답은 없지만 확인 후 말씀드리겠습니다."],
+  ["I don't want to give you inaccurate information.", "부정확한 정보를 드리고 싶지는 않습니다."]]},
  {cat:"진행 상황 공유", items:[
   ["Could you update us on the project?","프로젝트 진행 상황을 알려주시겠어요?"],
   ["How's the integration coming along?","연동 작업은 어떻게 진행되고 있나요?"],
@@ -361,7 +365,9 @@ const TEMPLATES = [
   ["Thank you for your time. I look forward to your feedback.","시간 내주셔서 감사합니다. 피드백 기다리겠습니다."],
   ["Let me quickly recap what we've agreed on.", "합의한 내용을 빠르게 정리하겠습니다."],
   ["I'll send a summary email right after this meeting.", "회의 끝나고 바로 요약 메일 보내드리겠습니다."],
-  ["Who should I follow up with on the budget?", "예산 건은 누구와 후속 논의하면 될까요?"]]},
+  ["Who should I follow up with on the budget?", "예산 건은 누구와 후속 논의하면 될까요?"],
+  ["Let me summarize what we've discussed so far.", "지금까지 논의한 내용을 정리하겠습니다."],
+  ["So, the next step would be to confirm the requirements with your team.", "그럼 다음 단계는 귀사 팀과 요구사항을 확정하는 것이겠네요."]]},
  {cat:"의견 묻기·참여 유도", items:[
   ["I'd really value your input on this.", "이 부분은 의견을 꼭 듣고 싶습니다."],
   ["How do you see it from the client's side?", "고객사 입장에서는 어떻게 보세요?"],
@@ -436,7 +442,7 @@ const PATTERNS = [
  {p:"Let me walk you through ~",m:"~을 차근차근 설명드리겠습니다",ex:[["Let me walk you through it.", "차근차근 설명드리겠습니다."], ["Let me walk you through the main findings.", "주요 결과를 하나씩 설명드리겠습니다."], ["Could you walk me through the timeline?", "일정을 차근차근 설명해 주시겠어요?"]]},
  {p:"Did you get a chance to + 동사?",m:"~할 기회가 있었나요? (진행 확인)",ex:[["Did you get a chance to send the files?","파일 보내실 시간 있으셨나요?"],["Did you get a chance to review it?","검토해 보셨나요?"]]},
  {p:"Could you update us on ~?",m:"~ 진행 상황을 알려주시겠어요?",ex:[["Could you update us on the project?","프로젝트 진행 상황을 알려주시겠어요?"],["Do you have any updates on the negotiation?","협상 관련 새 소식 있나요?"],["Any updates on the research?","조사 진행 상황에 변동 있나요?"],["Could you update us on the timeline?","일정 변경 사항을 공유해 주시겠어요?"]]},
- {p:"Could you clarify ~?",m:"명확히 설명해 주시겠어요?",ex:[["Could you clarify that?","그 부분 좀 더 설명해 주시겠어요?"],["I'm not sure I fully understand your question. Could you clarify a little?","질문을 완전히 이해했는지 모르겠는데, 조금 더 설명해 주시겠어요?"],["Could you clarify the last part of your question?","질문의 마지막 부분을 설명해 주시겠어요?"],["I'm sorry. Let me clarify.","죄송합니다. 명확히 말씀드릴게요."]]},
+ {p:"Could you clarify ~?",m:"명확히 설명해 주시겠어요?",ex:[["Could you clarify that?","그 부분 좀 더 설명해 주시겠어요?"],["I'm not sure I fully understand your question. Could you clarify a little?","질문을 완전히 이해했는지 모르겠는데, 조금 더 설명해 주시겠어요?"],["Could you clarify the last part of your question?","질문의 마지막 부분을 설명해 주시겠어요?"],["I'm sorry. Let me clarify.","죄송합니다. 명확히 말씀드릴게요."],["Could you elaborate on that?", "그 부분을 좀 더 자세히 설명해 주시겠어요?"],["Just to clarify, are you saying that the budget is fixed?", "정확히 하자면, 예산이 고정이라는 말씀이신가요?"]]},
  {p:"What are your thoughts on ~?",m:"~에 대해 어떻게 생각하세요?",ex:[["What are your thoughts on our plan?","저희 계획 어떻게 생각하세요?"],["Do you have any thoughts?","의견 있으신가요?"],["Any thoughts on this idea?","이 아이디어에 의견 있으신가요?"],["Any questions or thoughts?","질문이나 의견 있으신가요?"]]},
  {p:"be in the process of -ing",m:"~하는 중이다",ex:[["We're still in the process of negotiating.","아직 협상 중입니다."],["We're in the process of developing a new chatbot.","새 챗봇을 개발하는 중입니다."],["We're in the process of testing the new system.", "새 시스템을 테스트하는 과정에 있습니다."]]},
  {p:"would have to + 동사",m:"~해야 할 것 같습니다 (정중)",ex:[["You would have to speak to him about that.","그 부분은 그분과 이야기하셔야 할 것 같습니다."],["I would have to get back to you on that.","확인 후 다시 말씀드려야 할 것 같습니다."]]},
@@ -477,7 +483,14 @@ const PATTERNS = [
  {p:"Do you have any questions?",m:"질문 있으신가요?",ex:[["Do you have any questions?", "질문 있으신가요?"], ["Are there any questions so far?", "여기까지 질문 있으신가요?"], ["If you have any questions, feel free to ask.", "질문 있으시면 편하게 물어보세요."]]},
  {p:"be committed to + -ing",m:"~에 책임감을 갖고 임하다 (강한 의지)",ex:[["We're committed to making this project a success.", "이 프로젝트를 성공시키는 데 책임감을 갖고 임하겠습니다."], ["We're committed to delivering a solution that truly meets your needs.", "니즈에 꼭 맞는 솔루션 제공에 최선을 다하겠습니다."], ["We're committed to keeping you informed throughout the project.", "프로젝트 내내 상황을 공유드리겠습니다."]],note:"to는 전치사 → 뒤에 -ing. We'll do our best보다 전문적이고 강한 표현"},
  {p:"look forward to + -ing",m:"~하기를 기대하다",ex:[["We look forward to working closely with your team.", "귀사 팀과 긴밀히 협력하길 기대합니다."], ["We're looking forward to building a long-term partnership with your team.", "귀사 팀과 장기 파트너십을 쌓아가길 기대합니다."], ["I look forward to hearing your feedback.", "피드백 기다리겠습니다."]],note:"to 뒤 -ing (look forward to meet ✕)"},
- {p:"deliver / create real value",m:"실질적인 가치를 제공하다 (컨설팅·B2B)",ex:[["Our priority is to deliver real value to your business.", "저희 최우선 목표는 귀사에 실질적인 가치를 드리는 것입니다."], ["This solution will create real value by cutting manual work in half.", "이 솔루션은 수작업을 절반으로 줄여 실질적인 가치를 만듭니다."]]}
+ {p:"deliver / create real value",m:"실질적인 가치를 제공하다 (컨설팅·B2B)",ex:[["Our priority is to deliver real value to your business.", "저희 최우선 목표는 귀사에 실질적인 가치를 드리는 것입니다."], ["This solution will create real value by cutting manual work in half.", "이 솔루션은 수작업을 절반으로 줄여 실질적인 가치를 만듭니다."]]},
+ {p:"Let me + 동사 + and get back to you.",m:"제가 ~해 보고 다시 말씀드리겠습니다 (즉답 어려울 때 만능)",ex:[["Let me look into that and get back to you.", "좀 더 알아보고 다시 말씀드릴게요."], ["Let me check with my team and get back to you.", "팀과 확인한 후 다시 말씀드릴게요."], ["Let me review this and get back to you.", "검토 후 다시 말씀드리겠습니다."], ["Let me confirm the details and get back to you.", "세부 사항을 확인하고 다시 말씀드릴게요."], ["I'll get back to you with an update by Friday.", "금요일까지 진행 상황을 정리해 다시 공유드릴게요."]],note:"look into = 자세히 알아보다"},
+ {p:"take ~ into consideration / think ~ through",m:"고려하다 / 충분히 검토하다 (수용 약속은 아님)",ex:[["We'll take that into consideration.", "그 부분을 고려하겠습니다."], ["We'll carefully consider your suggestion.", "제안해 주신 내용을 신중히 검토하겠습니다."], ["That's something we need to think through.", "충분히 고민해 봐야 할 부분입니다."], ["I'd like to take some time to evaluate this.", "시간을 갖고 평가해 보고 싶습니다."]],note:"검토하겠다는 뜻이지 받아들이겠다는 약속이 아님"},
+ {p:"That works for us. / We're aligned on ~",m:"저희는 괜찮습니다 / 의견이 일치합니다 (수용·동의)",ex:[["That works for us.", "저희는 그렇게 진행하면 좋겠습니다."], ["We're happy to go with that.", "그 방향으로 진행해도 좋습니다."], ["We can accommodate that request.", "해당 요청은 수용할 수 있습니다."], ["That sounds reasonable.", "합리적인 제안 같습니다."], ["We're aligned on that.", "그 부분은 서로 의견이 같습니다."], ["I'm afraid that doesn't work for us.", "죄송하지만 저희에게는 어렵습니다."]],note:"일정·제안·진행 방향에 두루 사용. 반대는 doesn't work for us"},
+ {p:"Let's revisit this later.",m:"나중에 다시 논의하시죠 (보류)",ex:[["Let's revisit this later.", "이 부분은 나중에 다시 논의하시죠."], ["Let's put this on hold for now.", "일단 보류해 두시죠."], ["Let's pick this up in our next meeting.", "다음 미팅에서 이어서 논의하시죠."], ["We can discuss this further later.", "추후 좀 더 논의할 수 있겠습니다."]],note:"circle back은 캐주얼. 공식 고객 미팅에서는 revisit이 무난"},
+ {p:"I think it would be better to ~",m:"~하는 편이 좋겠습니다 (부담 없는 제안)",ex:[["I think it would be better to discuss this in person.", "이 부분은 직접 만나서 논의하는 편이 좋겠습니다."], ["Let's arrange a face-to-face meeting.", "대면 미팅을 잡으시죠."], ["We can go over the details in person.", "세부 사항은 직접 만나서 검토하시죠."], ["I think it would be better to start with a smaller scope.", "작은 범위로 시작하는 편이 좋겠습니다."]],note:"'오프라인 미팅' 대신 in person / face-to-face"},
+ {p:"One option would be to ~ / I would suggest ~",m:"한 가지 방법은 ~ / ~를 제안드립니다",ex:[["One option would be to start with a pilot.", "한 가지 방법은 파일럿으로 시작하는 것입니다."], ["I would suggest moving this feature to phase two.", "이 기능은 2단계로 옮기는 걸 제안드립니다."], ["From our perspective, the timeline is the bigger risk.", "저희 관점에서는 일정이 더 큰 리스크입니다."]],note:"suggest 뒤에는 -ing 또는 that절"},
+ {p:"Let me ~ / Let's ~ (짧은 만능)",m:"제가 ~할게요 / 함께 ~하시죠 (미팅 주도)",ex:[["Let me check.", "확인해 볼게요."], ["Let me clarify.", "명확히 말씀드릴게요."], ["Let me explain.", "설명드릴게요."], ["Let's move on.", "다음으로 넘어가시죠."], ["Let's make sure we're aligned.", "서로 생각이 맞는지 확인하시죠."], ["Let's stay in touch.", "계속 연락하시죠."]]}
 ];
 
 const DIALOGUE = [
