@@ -430,6 +430,17 @@ const TEMPLATES = [
   ["Please don't hesitate to contact me if anything comes up.", "무슨 일이 생기면 주저 말고 연락 주세요."],
   ["You can reach me by email or phone anytime.", "이메일이나 전화로 언제든 연락 주세요."],
   ["I'm happy to help if you need anything else.", "더 필요한 게 있으시면 기꺼이 도와드리겠습니다."]]},
+ {cat:"실적 근거·안심시키기", items:[
+  ["We've done a similar project before, and it went very well.", "비슷한 프로젝트를 해본 적이 있는데 결과가 아주 좋았습니다.", "★"],
+  ["We've successfully implemented this solution for another client in the same industry.", "같은 업계의 다른 고객사에 이 솔루션을 성공적으로 구축했습니다."],
+  ["In a similar case, we reduced response time by 30 percent within three months.", "비슷한 사례에서 3개월 만에 응답 시간을 30% 줄였습니다."],
+  ["We have a proven track record with projects like this.", "이런 프로젝트에서 검증된 실적이 있습니다."],
+  ["I can share a case study from a similar project.", "비슷한 프로젝트 사례를 공유드릴 수 있습니다."],
+  ["You don't need to worry about that. We've got it covered.", "그 부분은 걱정 안 하셔도 됩니다. 저희가 챙기고 있습니다.", "★"],
+  ["Rest assured, we'll take care of it.", "안심하세요. 저희가 처리하겠습니다."],
+  ["There's no need to worry. We've handled this kind of issue many times.", "걱정하실 필요 없습니다. 이런 문제는 여러 번 다뤄봤습니다."],
+  ["We have a backup plan in place, just in case.", "만일을 대비한 대안도 마련돼 있습니다."],
+  ["I'm confident we can deliver this on time.", "제때 납품할 수 있다고 확신합니다."]]},
  {cat:"이메일 필수 문장 (Task Output)", items:[
   ["I'm writing to update you on the project schedule.","프로젝트 일정 관련 업데이트드리고자 메일 드립니다.","★"],
   ["I'd like to propose a four-week pilot.","4주 파일럿을 제안드리고자 합니다."],
@@ -503,7 +514,9 @@ const PATTERNS = [
  {p:"One option would be to ~ / I would suggest ~",m:"한 가지 방법은 ~ / ~를 제안드립니다",ex:[["One option would be to start with a pilot.", "한 가지 방법은 파일럿으로 시작하는 것입니다."], ["I would suggest moving this feature to phase two.", "이 기능은 2단계로 옮기는 걸 제안드립니다."], ["From our perspective, the timeline is the bigger risk.", "저희 관점에서는 일정이 더 큰 리스크입니다."]],note:"suggest 뒤에는 -ing 또는 that절"},
  {p:"Let me ~ / Let's ~ (짧은 만능)",m:"제가 ~할게요 / 함께 ~하시죠 (미팅 주도)",ex:[["Let me check.", "확인해 볼게요."], ["Let me clarify.", "명확히 말씀드릴게요."], ["Let me explain.", "설명드릴게요."], ["Let's move on.", "다음으로 넘어가시죠."], ["Let's make sure we're aligned.", "서로 생각이 맞는지 확인하시죠."], ["Let's stay in touch.", "계속 연락하시죠."]]},
  {p:"When would be a good time to ~?",m:"언제 ~하면 좋을까요? (일정 제안 받기)",ex:[["When would be a good time to meet again?", "언제 다시 뵈면 좋을까요?"], ["When would be a good time to give you a call?", "언제 전화드리면 좋을까요?"], ["What time works best for you?", "몇 시가 제일 편하세요?"]],note:"상대에게 선택권을 주는 정중한 방식. 답할 때는 Does ~ work for you?로 구체 시간 제안"},
- {p:"feel free to ~ / don't hesitate to ~",m:"편하게 ~하세요 / 주저 말고 ~하세요",ex:[["Feel free to reach out anytime.", "언제든 편하게 연락 주세요."], ["Feel free to interrupt me if you have any questions.", "질문 있으시면 중간에 편하게 말씀해 주세요."], ["Please don't hesitate to let me know if you need anything.", "필요한 게 있으면 주저 말고 말씀해 주세요."]],note:"이메일·미팅 마무리 단골 표현"}
+ {p:"feel free to ~ / don't hesitate to ~",m:"편하게 ~하세요 / 주저 말고 ~하세요",ex:[["Feel free to reach out anytime.", "언제든 편하게 연락 주세요."], ["Feel free to interrupt me if you have any questions.", "질문 있으시면 중간에 편하게 말씀해 주세요."], ["Please don't hesitate to let me know if you need anything.", "필요한 게 있으면 주저 말고 말씀해 주세요."]],note:"이메일·미팅 마무리 단골 표현"},
+ {p:"have a proven track record (in / with) ~",m:"검증된 실적이 있다",ex:[["We have a proven track record in cloud migration.", "클라우드 전환에서 검증된 실적이 있습니다."], ["The vendor has a proven track record with retail clients.", "그 벤더는 유통 고객사에서 검증된 실적이 있습니다."], ["We've done this before, and it worked well.", "전에 해본 적이 있고 잘 됐습니다."]],note:"in + 분야, with + 고객·프로젝트 유형"},
+ {p:"Rest assured, ~ / We've got it covered.",m:"안심하세요 / 저희가 챙기고 있습니다",ex:[["Rest assured, your data will stay secure.", "안심하세요. 데이터는 안전하게 보호됩니다."], ["Don't worry, we've got it covered.", "걱정 마세요. 저희가 챙기고 있습니다."], ["You can count on us.", "저희를 믿고 맡겨 주세요."]],note:"Don't worry만 쓰면 가볍게 들릴 수 있음 → 실적·대안 같은 근거를 한 문장 붙이기"}
 ];
 
 const DIALOGUE = [
